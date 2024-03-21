@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         int ID = view.getId();
         if(ID == binding.Button1.getId()) {
             if ((Value%2)==0){
-                binding.Button1.setImageResource(R.drawable.rouge);
+                binding.Button1.setImageResource(R.drawable.Rouge);
                 Value = Value+1;
             }
 
