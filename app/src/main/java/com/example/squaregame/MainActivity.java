@@ -14,11 +14,13 @@ import com.example.squaregame.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ActivityMainBinding binding;
-    int Value = 0;
+
+    int Value=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
     }
     @Override
     protected void onResume() {
@@ -36,10 +38,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 binding.Button1.setImageResource(R.drawable.gris);
             }
             Value = Value+1;
-
         }
     }
-
+    
 
 
 }
