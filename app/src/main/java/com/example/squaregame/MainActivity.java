@@ -30,13 +30,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         LinearLayout buttonContainer = findViewById(R.id.buttonContainer);
 
-        // Récupérer la hauteur de l'écran
+        // Récupérer la largeur de l'écran
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        int screenHeight = displayMetrics.heightPixels;
+        int screenWidth = displayMetrics.widthPixels;
 
-        // Calculer la hauteur des boutons
-        int buttonHeight = screenHeight / 40; // 5% de la hauteur de l'écran
+        // Calculer la largeur des boutons
+        int buttonWidth = screenWidth / 40; // 5% de la largeur de l'écran
 
         // Créer et ajouter les boutons dynamiquement
         for (int i = 0; i < numButtons; i++) {
@@ -47,11 +47,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                     0, // largeur 0 pour un poids égal
-                    buttonHeight // hauteur calculée
+                    buttonWidth // largeur calculée
             );
             params.weight = 1; // poids égal pour chaque bouton
             if (i != 0) {
-                params.setMarginStart(100); // Espacement de 10 pixels
+                params.setMarginStart(100); // Espacement de 100 pixels
             }
             button.setLayoutParams(params);
 
