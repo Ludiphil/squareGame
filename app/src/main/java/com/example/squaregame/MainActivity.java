@@ -14,17 +14,12 @@ import com.example.squaregame.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener{
     private ActivityMainBinding binding;
-    Integer Value;
+    int Value=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
     }
     @Override
     protected void onResume() {
@@ -36,7 +31,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         int ID = view.getId();
         if(ID == binding.Button1.getId()) {
             if ((Value%2)==0){
-                binding.Button1.setImageResource(R.drawable.Rouge);
+                binding.Button1.setImageResource(R.drawable.rouge);
                 Value = Value+1;
             }
 
