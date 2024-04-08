@@ -7,15 +7,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageButton
-        android:id="@+id/Button1"
-        android:layout_width="24dp"
-        android:layout_height="96dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="168dp"
-        android:contentDescription="Test"
-        app:layout_constraintStart_toStartOf="parent"
+    <LinearLayout
+        android:id="@+id/buttonContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/gris" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
