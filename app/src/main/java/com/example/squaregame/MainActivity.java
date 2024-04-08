@@ -12,20 +12,13 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.squaregame.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity  implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ActivityMainBinding binding;
-    Integer Value;
+    int Value = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        Trait[] board = new Trait[49];
-        for (int i = 0; i < 49; i++) {
-            Trait trait = new Trait(i);
-            board[i] = trait;
-            System.out.println(board[i].getId());
-        }
     }
     @Override
     protected void onResume() {
@@ -37,12 +30,16 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         int ID = view.getId();
         if(ID == binding.Button1.getId()) {
             if ((Value%2)==0){
-                binding.Button1.setImageResource(R.drawable.Rouge);
-                Value = Value+1;
+                binding.Button1.setImageResource(R.drawable.rouge);
             }
+            else{
+                binding.Button1.setImageResource(R.drawable.gris);
+            }
+            Value = Value+1;
 
         }
     }
+
 
 
 }
