@@ -8,14 +8,100 @@
     tools:context=".MainActivity">
 
     <ImageButton
-        android:id="@+id/Button1"
-        android:layout_width="24dp"
-        android:layout_height="96dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="168dp"
+        android:id="@+id/ButtonRight"
+        android:layout_width="16dp"
+        android:layout_height="60dp"
+        android:contentDescription="Test"
+        app:layout_constraintBottom_toTopOf="@+id/Contour2"
+        app:layout_constraintStart_toEndOf="@+id/Remplissage"
+        app:layout_constraintTop_toBottomOf="@+id/Contour3"
+        app:srcCompat="@drawable/gris" />
+
+    <ImageButton
+        android:id="@+id/ButtonLeft"
+        android:layout_width="16dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="36dp"
+        android:contentDescription="Test"
+        app:layout_constraintBottom_toTopOf="@+id/Contour4"
+        app:layout_constraintEnd_toStartOf="@+id/Remplissage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Contour1"
+        app:srcCompat="@drawable/gris" />
+
+    <ImageButton
+        android:id="@+id/ButtonTop"
+        android:layout_width="60dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="48dp"
+        android:contentDescription="Test"
+        app:layout_constraintBottom_toTopOf="@+id/Remplissage"
+        app:layout_constraintEnd_toStartOf="@+id/Contour3"
+        app:layout_constraintStart_toEndOf="@+id/Contour1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/gris" />
+
+    <ImageButton
+        android:id="@+id/ButtonBottom"
+        android:layout_width="60dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="124dp"
         android:contentDescription="Test"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/gris" />
+
+    <ImageView
+        android:id="@+id/Remplissage"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/ButtonBottom"
+        app:layout_constraintEnd_toStartOf="@+id/ButtonRight"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/ButtonLeft"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonTop"
+        app:layout_constraintVertical_bias="0.0"
+        tools:srcCompat="@drawable/transparent" />
+
+    <ImageView
+        android:id="@+id/Contour1"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/ButtonLeft"
+        app:layout_constraintEnd_toStartOf="@+id/ButtonTop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/radiobutton_off_background" />
+
+    <ImageView
+        android:id="@+id/Contour2"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        app:layout_constraintStart_toEndOf="@+id/ButtonBottom"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonRight"
+        app:srcCompat="@android:drawable/radiobutton_off_background" />
+
+    <ImageView
+        android:id="@+id/Contour3"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/ButtonRight"
+        app:layout_constraintStart_toEndOf="@+id/ButtonTop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/radiobutton_off_background" />
+
+    <ImageView
+        android:id="@+id/Contour4"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="36dp"
+        app:layout_constraintEnd_toStartOf="@+id/ButtonBottom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonLeft"
+        app:srcCompat="@android:drawable/radiobutton_off_background" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
