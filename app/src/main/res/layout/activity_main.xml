@@ -8,12 +8,47 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/nbjoueurTitre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="Nombre de joueur"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.127"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.061" />
+
+    <RadioButton
+        android:id="@+id/Nb2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="76dp" />
+
+    <RadioButton
+        android:id="@+id/nb4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3"
+        tools:layout_editor_absoluteX="156dp"
+        tools:layout_editor_absoluteY="75dp" />
+
+    <RadioButton
+        android:id="@+id/nb3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4"
+        tools:layout_editor_absoluteX="300dp"
+        tools:layout_editor_absoluteY="77dp" />
+
+    <TextView
+        android:id="@+id/GrilleTitre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Taille de la Grille"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="219dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
