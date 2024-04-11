@@ -7,15 +7,74 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageButton
-        android:id="@+id/ButtonRight"
+
+    <ImageView
+        android:id="@+id/imageView9"
         android:layout_width="16dp"
-        android:layout_height="60dp"
-        android:contentDescription="Test"
-        app:layout_constraintBottom_toTopOf="@+id/Contour2"
-        app:layout_constraintStart_toEndOf="@+id/Remplissage"
-        app:layout_constraintTop_toBottomOf="@+id/Contour3"
-        app:srcCompat="@drawable/gris" />
+        android:layout_height="16dp"
+        android:layout_marginEnd="129dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonRight9"
+        app:srcCompat="@android:drawable/radiobutton_off_background" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        app:layout_constraintStart_toEndOf="@+id/ButtonBottom8"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonRight8"
+        app:srcCompat="@android:drawable/radiobutton_off_background" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="36dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonLeft3"
+        app:srcCompat="@android:drawable/radiobutton_off_background" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        app:layout_constraintStart_toEndOf="@+id/ButtonBottom7"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonRight7"
+        app:srcCompat="@android:drawable/radiobutton_off_background" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        app:layout_constraintStart_toEndOf="@+id/ButtonBottom5"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonRight5"
+        app:srcCompat="@android:drawable/radiobutton_off_background" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="130dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonRight6"
+        app:srcCompat="@android:drawable/radiobutton_off_background" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        app:layout_constraintStart_toEndOf="@+id/ButtonBottom4"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonRight4"
+        app:srcCompat="@android:drawable/radiobutton_off_background" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="36dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonLeft2"
+        app:srcCompat="@android:drawable/radiobutton_off_background" />
 
     <ImageButton
         android:id="@+id/ButtonLeft"
@@ -23,61 +82,328 @@
         android:layout_height="60dp"
         android:layout_marginStart="36dp"
         android:contentDescription="Test"
-        app:layout_constraintBottom_toTopOf="@+id/Contour4"
-        app:layout_constraintEnd_toStartOf="@+id/Remplissage"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Contour1"
-        app:srcCompat="@drawable/gris" />
-
-    <ImageButton
-        android:id="@+id/ButtonTop"
-        android:layout_width="60dp"
-        android:layout_height="16dp"
-        android:layout_marginTop="48dp"
-        android:contentDescription="Test"
-        app:layout_constraintBottom_toTopOf="@+id/Remplissage"
-        app:layout_constraintEnd_toStartOf="@+id/Contour3"
-        app:layout_constraintStart_toEndOf="@+id/Contour1"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"
         app:srcCompat="@drawable/gris" />
 
     <ImageButton
         android:id="@+id/ButtonBottom"
         android:layout_width="60dp"
         android:layout_height="16dp"
+        android:contentDescription="Test"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/Remplissage"
+        app:srcCompat="@drawable/gris" />
+
+    <ImageButton
+        android:id="@+id/ButtonRight"
+        android:layout_width="16dp"
+        android:layout_height="60dp"
+        android:contentDescription="Test"
+        app:layout_constraintEnd_toStartOf="@+id/Remplissage2"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonTop"
+        app:srcCompat="@drawable/gris" />
+
+    <ImageButton
+        android:id="@+id/ButtonTop"
+        android:layout_width="60dp"
+        android:layout_height="16dp"
         android:layout_marginStart="52dp"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="48dp"
         android:contentDescription="Test"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/gris" />
+
+    <ImageButton
+        android:id="@+id/ButtonBottom2"
+        android:layout_width="60dp"
+        android:layout_height="16dp"
+        android:contentDescription="Test"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/Remplissage2"
+        app:srcCompat="@drawable/gris" />
+
+    <ImageButton
+        android:id="@+id/ButtonRight2"
+        android:layout_width="16dp"
+        android:layout_height="60dp"
+        android:contentDescription="Test"
+        app:layout_constraintEnd_toStartOf="@+id/Remplissage3"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:srcCompat="@drawable/gris" />
+
+    <ImageButton
+        android:id="@+id/ButtonTop2"
+        android:layout_width="60dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="48dp"
+        android:contentDescription="Test"
+        app:layout_constraintStart_toEndOf="@+id/imageView7"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/gris" />
+
+    <ImageButton
+        android:id="@+id/ButtonBottom3"
+        android:layout_width="60dp"
+        android:layout_height="16dp"
+        android:contentDescription="Test"
+        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/Remplissage3"
+        app:srcCompat="@drawable/gris" />
+
+    <ImageButton
+        android:id="@+id/ButtonRight3"
+        android:layout_width="16dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="131dp"
+        android:contentDescription="Test"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:srcCompat="@drawable/gris" />
+
+
+    <ImageButton
+        android:id="@+id/ButtonTop3"
+        android:layout_width="60dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="48dp"
+        android:contentDescription="Test"
+        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/gris" />
+
+    <ImageButton
+        android:id="@+id/ButtonLeft2"
+        android:layout_width="16dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="36dp"
+        android:contentDescription="Test"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:srcCompat="@drawable/gris" />
+
+    <ImageButton
+        android:id="@+id/ButtonBottom4"
+        android:layout_width="60dp"
+        android:layout_height="16dp"
+        android:contentDescription="Test"
+        app:layout_constraintStart_toEndOf="@+id/imageView15"
+        app:layout_constraintTop_toBottomOf="@+id/Remplissage4"
+        app:srcCompat="@drawable/gris" />
+
+    <ImageButton
+        android:id="@+id/ButtonRight4"
+        android:layout_width="16dp"
+        android:layout_height="60dp"
+        android:contentDescription="Test"
+        app:layout_constraintEnd_toStartOf="@+id/Remplissage5"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:srcCompat="@drawable/gris" />
+
+    <ImageButton
+        android:id="@+id/ButtonBottom5"
+        android:layout_width="60dp"
+        android:layout_height="16dp"
+        android:contentDescription="Test"
+        app:layout_constraintStart_toEndOf="@+id/imageView14"
+        app:layout_constraintTop_toBottomOf="@+id/Remplissage5"
+        app:srcCompat="@drawable/gris" />
+
+    <ImageButton
+        android:id="@+id/ButtonRight5"
+        android:layout_width="16dp"
+        android:layout_height="60dp"
+        android:contentDescription="Test"
+        app:layout_constraintEnd_toStartOf="@+id/Remplissage6"
+        app:layout_constraintTop_toBottomOf="@+id/imageView1"
+        app:srcCompat="@drawable/gris" />
+
+    <ImageButton
+        android:id="@+id/ButtonBottom6"
+        android:layout_width="60dp"
+        android:layout_height="16dp"
+        android:contentDescription="Test"
+        app:layout_constraintStart_toEndOf="@+id/imageView12"
+        app:layout_constraintTop_toBottomOf="@+id/Remplissage6"
+        app:srcCompat="@drawable/gris" />
+
+    <ImageButton
+        android:id="@+id/ButtonRight6"
+        android:layout_width="16dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="131dp"
+        android:contentDescription="Test"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:srcCompat="@drawable/gris" />
+
+    <ImageButton
+        android:id="@+id/ButtonLeft3"
+        android:layout_width="16dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="36dp"
+        android:contentDescription="Test"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView15"
+        app:srcCompat="@drawable/gris" />
+
+    <ImageButton
+        android:id="@+id/ButtonBottom7"
+        android:layout_width="60dp"
+        android:layout_height="16dp"
+        android:contentDescription="Test"
+        app:layout_constraintStart_toEndOf="@+id/imageView10"
+        app:layout_constraintTop_toBottomOf="@+id/Remplissage7"
+        app:srcCompat="@drawable/gris" />
+
+    <ImageButton
+        android:id="@+id/ButtonRight7"
+        android:layout_width="16dp"
+        android:layout_height="60dp"
+        android:contentDescription="Test"
+        app:layout_constraintEnd_toStartOf="@+id/Remplissage8"
+        app:layout_constraintTop_toBottomOf="@+id/imageView14"
+        app:srcCompat="@drawable/gris" />
+
+    <ImageButton
+        android:id="@+id/ButtonBottom8"
+        android:layout_width="60dp"
+        android:layout_height="16dp"
+        android:contentDescription="Test"
+        app:layout_constraintStart_toEndOf="@+id/imageView11"
+        app:layout_constraintTop_toBottomOf="@+id/Remplissage8"
+        app:srcCompat="@drawable/gris" />
+
+    <ImageButton
+        android:id="@+id/ButtonRight8"
+        android:layout_width="16dp"
+        android:layout_height="60dp"
+        android:contentDescription="Test"
+        app:layout_constraintEnd_toStartOf="@+id/Remplissage9"
+        app:layout_constraintTop_toBottomOf="@+id/imageView12"
+        app:srcCompat="@drawable/gris" />
+
+    <ImageButton
+        android:id="@+id/ButtonBottom9"
+        android:layout_width="60dp"
+        android:layout_height="16dp"
+        android:contentDescription="Test"
+        app:layout_constraintStart_toEndOf="@+id/imageView16"
+        app:layout_constraintTop_toBottomOf="@+id/Remplissage9"
+        app:srcCompat="@drawable/gris" />
+
+    <ImageButton
+        android:id="@+id/ButtonRight9"
+        android:layout_width="16dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="130dp"
+        android:contentDescription="Test"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView13"
         app:srcCompat="@drawable/gris" />
 
     <ImageView
         android:id="@+id/Remplissage"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        app:layout_constraintBottom_toTopOf="@+id/ButtonBottom"
         app:layout_constraintEnd_toStartOf="@+id/ButtonRight"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/ButtonLeft"
         app:layout_constraintTop_toBottomOf="@+id/ButtonTop"
-        app:layout_constraintVertical_bias="0.0"
         tools:srcCompat="@drawable/transparent" />
 
     <ImageView
-        android:id="@+id/Contour1"
+        android:id="@+id/Remplissage2"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintEnd_toStartOf="@+id/ButtonRight2"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonTop2"
+        tools:srcCompat="@drawable/transparent" />
+
+    <ImageView
+        android:id="@+id/Remplissage3"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintEnd_toStartOf="@+id/ButtonRight3"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonTop3"
+        tools:srcCompat="@drawable/transparent" />
+
+    <ImageView
+        android:id="@+id/Remplissage4"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintEnd_toStartOf="@+id/ButtonRight4"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonBottom"
+        tools:srcCompat="@drawable/transparent" />
+
+    <ImageView
+        android:id="@+id/Remplissage5"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintEnd_toStartOf="@+id/ButtonRight5"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonBottom2"
+        tools:srcCompat="@drawable/transparent" />
+
+    <ImageView
+        android:id="@+id/Remplissage6"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintEnd_toStartOf="@+id/ButtonRight6"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonBottom3"
+        tools:srcCompat="@drawable/transparent" />
+
+    <ImageView
+        android:id="@+id/Remplissage7"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintEnd_toStartOf="@+id/ButtonRight7"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonBottom4"
+        tools:srcCompat="@drawable/transparent" />
+
+    <ImageView
+        android:id="@+id/Remplissage8"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintEnd_toStartOf="@+id/ButtonRight8"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonBottom5"
+        tools:srcCompat="@drawable/transparent" />
+
+    <ImageView
+        android:id="@+id/Remplissage9"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintEnd_toStartOf="@+id/ButtonRight9"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonBottom6"
+        tools:srcCompat="@drawable/transparent" />
+
+    <ImageView
+        android:id="@+id/imageView1"
         android:layout_width="16dp"
         android:layout_height="16dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/ButtonLeft"
-        app:layout_constraintEnd_toStartOf="@+id/ButtonTop"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ButtonBottom3"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonRight2"
         app:srcCompat="@android:drawable/radiobutton_off_background" />
 
     <ImageView
-        android:id="@+id/Contour2"
+        android:id="@+id/imageView2"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="130dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonRight3"
+        app:srcCompat="@android:drawable/radiobutton_off_background" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="36dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonLeft"
+        app:srcCompat="@android:drawable/radiobutton_off_background" />
+
+    <ImageView
+        android:id="@+id/imageView4"
         android:layout_width="16dp"
         android:layout_height="16dp"
         app:layout_constraintStart_toEndOf="@+id/ButtonBottom"
@@ -85,23 +411,41 @@
         app:srcCompat="@android:drawable/radiobutton_off_background" />
 
     <ImageView
-        android:id="@+id/Contour3"
+        android:id="@+id/imageView5"
         android:layout_width="16dp"
         android:layout_height="16dp"
         android:layout_marginTop="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/ButtonRight"
+        android:layout_marginEnd="131dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/radiobutton_off_background" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintStart_toEndOf="@+id/ButtonTop2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/radiobutton_off_background" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="48dp"
         app:layout_constraintStart_toEndOf="@+id/ButtonTop"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/radiobutton_off_background" />
 
     <ImageView
-        android:id="@+id/Contour4"
+        android:id="@+id/imageView8"
         android:layout_width="16dp"
         android:layout_height="16dp"
         android:layout_marginStart="36dp"
-        app:layout_constraintEnd_toStartOf="@+id/ButtonBottom"
+        android:layout_marginTop="48dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ButtonLeft"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/radiobutton_off_background" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
