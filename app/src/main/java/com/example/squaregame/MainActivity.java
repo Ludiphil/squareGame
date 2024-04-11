@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     int numLines = 5; // Nombre de lignes à afficher
     int value = 0;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -146,6 +147,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // Ajouter la disposition verticale contenant les boutons à la vue principale
         buttonContainer.addView(verticalLayout);
+
     }
 
     @Override
@@ -184,6 +186,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Gérer les clics de bouton ici si nécessaire
     }
 }
+
 
 
 
