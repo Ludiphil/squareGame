@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         verticalLayout.setOrientation(LinearLayout.VERTICAL);
 
         // Calculer l'espacement entre les lignes
-        int rowSpacing = 60; // Espacement entre les lignes en pixels
+        int rowSpacing = 5; // Espacement entre les lignes en pixels
 
         // Créer et ajouter les boutons dynamiquement pour chaque ligne
         for (int j = 0; j < numLines; j++) {
@@ -162,9 +162,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (child instanceof ImageButton) {
                     System.out.println("ImageButton found with id: " + child.getId());
                     ((ImageButton) child).setOnClickListener(new View.OnClickListener() {
+
                         @Override
                         public void onClick(View v) {
+
                             ImageButton button = (ImageButton) v;
+
                             if (value == 0) {
                                 button.setImageResource(R.drawable.rouge);
                                 value = 1;
