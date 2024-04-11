@@ -12,8 +12,7 @@
         android:id="@+id/imageView9"
         android:layout_width="16dp"
         android:layout_height="16dp"
-        android:layout_marginEnd="129dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ButtonBottom9"
         app:layout_constraintTop_toBottomOf="@+id/ButtonRight9"
         app:srcCompat="@android:drawable/radiobutton_off_background" />
 
@@ -54,8 +53,8 @@
         android:id="@+id/imageView13"
         android:layout_width="16dp"
         android:layout_height="16dp"
-        android:layout_marginEnd="130dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="1dp"
+        app:layout_constraintStart_toEndOf="@+id/ButtonBottom6"
         app:layout_constraintTop_toBottomOf="@+id/ButtonRight6"
         app:srcCompat="@android:drawable/radiobutton_off_background" />
 
@@ -100,8 +99,8 @@
         android:layout_width="16dp"
         android:layout_height="60dp"
         android:contentDescription="Test"
-        app:layout_constraintEnd_toStartOf="@+id/Remplissage2"
-        app:layout_constraintTop_toBottomOf="@+id/ButtonTop"
+        app:layout_constraintStart_toEndOf="@+id/Remplissage"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7"
         app:srcCompat="@drawable/gris" />
 
     <ImageButton
@@ -129,7 +128,7 @@
         android:layout_width="16dp"
         android:layout_height="60dp"
         android:contentDescription="Test"
-        app:layout_constraintEnd_toStartOf="@+id/Remplissage3"
+        app:layout_constraintStart_toEndOf="@+id/Remplissage2"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
         app:srcCompat="@drawable/gris" />
 
@@ -148,7 +147,7 @@
         android:layout_width="60dp"
         android:layout_height="16dp"
         android:contentDescription="Test"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/imageView1"
         app:layout_constraintTop_toBottomOf="@+id/Remplissage3"
         app:srcCompat="@drawable/gris" />
 
@@ -156,9 +155,8 @@
         android:id="@+id/ButtonRight3"
         android:layout_width="16dp"
         android:layout_height="60dp"
-        android:layout_marginEnd="131dp"
         android:contentDescription="Test"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Remplissage3"
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
         app:srcCompat="@drawable/gris" />
 
@@ -197,7 +195,7 @@
         android:layout_width="16dp"
         android:layout_height="60dp"
         android:contentDescription="Test"
-        app:layout_constraintEnd_toStartOf="@+id/Remplissage5"
+        app:layout_constraintStart_toEndOf="@+id/Remplissage4"
         app:layout_constraintTop_toBottomOf="@+id/imageView4"
         app:srcCompat="@drawable/gris" />
 
@@ -215,7 +213,7 @@
         android:layout_width="16dp"
         android:layout_height="60dp"
         android:contentDescription="Test"
-        app:layout_constraintEnd_toStartOf="@+id/Remplissage6"
+        app:layout_constraintStart_toEndOf="@+id/Remplissage5"
         app:layout_constraintTop_toBottomOf="@+id/imageView1"
         app:srcCompat="@drawable/gris" />
 
@@ -232,9 +230,8 @@
         android:id="@+id/ButtonRight6"
         android:layout_width="16dp"
         android:layout_height="60dp"
-        android:layout_marginEnd="131dp"
         android:contentDescription="Test"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Remplissage6"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:srcCompat="@drawable/gris" />
 
@@ -262,7 +259,7 @@
         android:layout_width="16dp"
         android:layout_height="60dp"
         android:contentDescription="Test"
-        app:layout_constraintEnd_toStartOf="@+id/Remplissage8"
+        app:layout_constraintStart_toEndOf="@+id/Remplissage7"
         app:layout_constraintTop_toBottomOf="@+id/imageView14"
         app:srcCompat="@drawable/gris" />
 
@@ -280,7 +277,7 @@
         android:layout_width="16dp"
         android:layout_height="60dp"
         android:contentDescription="Test"
-        app:layout_constraintEnd_toStartOf="@+id/Remplissage9"
+        app:layout_constraintStart_toEndOf="@+id/Remplissage8"
         app:layout_constraintTop_toBottomOf="@+id/imageView12"
         app:srcCompat="@drawable/gris" />
 
@@ -297,9 +294,8 @@
         android:id="@+id/ButtonRight9"
         android:layout_width="16dp"
         android:layout_height="60dp"
-        android:layout_marginEnd="130dp"
         android:contentDescription="Test"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Remplissage9"
         app:layout_constraintTop_toBottomOf="@+id/imageView13"
         app:srcCompat="@drawable/gris" />
 
@@ -307,7 +303,7 @@
         android:id="@+id/Remplissage"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        app:layout_constraintEnd_toStartOf="@+id/ButtonRight"
+        app:layout_constraintStart_toEndOf="@+id/ButtonLeft"
         app:layout_constraintTop_toBottomOf="@+id/ButtonTop"
         tools:srcCompat="@drawable/transparent" />
 
@@ -315,7 +311,7 @@
         android:id="@+id/Remplissage2"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        app:layout_constraintEnd_toStartOf="@+id/ButtonRight2"
+        app:layout_constraintStart_toEndOf="@+id/ButtonRight"
         app:layout_constraintTop_toBottomOf="@+id/ButtonTop2"
         tools:srcCompat="@drawable/transparent" />
 
@@ -323,7 +319,7 @@
         android:id="@+id/Remplissage3"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        app:layout_constraintEnd_toStartOf="@+id/ButtonRight3"
+        app:layout_constraintStart_toEndOf="@+id/ButtonRight2"
         app:layout_constraintTop_toBottomOf="@+id/ButtonTop3"
         tools:srcCompat="@drawable/transparent" />
 
@@ -331,7 +327,7 @@
         android:id="@+id/Remplissage4"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        app:layout_constraintEnd_toStartOf="@+id/ButtonRight4"
+        app:layout_constraintStart_toEndOf="@+id/ButtonLeft2"
         app:layout_constraintTop_toBottomOf="@+id/ButtonBottom"
         tools:srcCompat="@drawable/transparent" />
 
@@ -339,7 +335,7 @@
         android:id="@+id/Remplissage5"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        app:layout_constraintEnd_toStartOf="@+id/ButtonRight5"
+        app:layout_constraintStart_toEndOf="@+id/ButtonRight4"
         app:layout_constraintTop_toBottomOf="@+id/ButtonBottom2"
         tools:srcCompat="@drawable/transparent" />
 
@@ -347,7 +343,7 @@
         android:id="@+id/Remplissage6"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        app:layout_constraintEnd_toStartOf="@+id/ButtonRight6"
+        app:layout_constraintStart_toEndOf="@+id/ButtonRight5"
         app:layout_constraintTop_toBottomOf="@+id/ButtonBottom3"
         tools:srcCompat="@drawable/transparent" />
 
@@ -355,7 +351,7 @@
         android:id="@+id/Remplissage7"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        app:layout_constraintEnd_toStartOf="@+id/ButtonRight7"
+        app:layout_constraintStart_toEndOf="@+id/ButtonLeft3"
         app:layout_constraintTop_toBottomOf="@+id/ButtonBottom4"
         tools:srcCompat="@drawable/transparent" />
 
@@ -363,7 +359,7 @@
         android:id="@+id/Remplissage8"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        app:layout_constraintEnd_toStartOf="@+id/ButtonRight8"
+        app:layout_constraintStart_toEndOf="@+id/ButtonRight7"
         app:layout_constraintTop_toBottomOf="@+id/ButtonBottom5"
         tools:srcCompat="@drawable/transparent" />
 
@@ -371,8 +367,7 @@
         android:id="@+id/Remplissage9"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginEnd="2dp"
-        app:layout_constraintEnd_toStartOf="@+id/ButtonRight9"
+        app:layout_constraintStart_toEndOf="@+id/ButtonRight8"
         app:layout_constraintTop_toBottomOf="@+id/ButtonBottom6"
         tools:srcCompat="@drawable/transparent" />
 
@@ -380,7 +375,7 @@
         android:id="@+id/imageView1"
         android:layout_width="16dp"
         android:layout_height="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/ButtonBottom3"
+        app:layout_constraintStart_toEndOf="@+id/ButtonBottom2"
         app:layout_constraintTop_toBottomOf="@+id/ButtonRight2"
         app:srcCompat="@android:drawable/radiobutton_off_background" />
 
@@ -388,8 +383,7 @@
         android:id="@+id/imageView2"
         android:layout_width="16dp"
         android:layout_height="16dp"
-        android:layout_marginEnd="130dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ButtonBottom3"
         app:layout_constraintTop_toBottomOf="@+id/ButtonRight3"
         app:srcCompat="@android:drawable/radiobutton_off_background" />
 
@@ -415,8 +409,7 @@
         android:layout_width="16dp"
         android:layout_height="16dp"
         android:layout_marginTop="48dp"
-        android:layout_marginEnd="131dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ButtonTop3"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/radiobutton_off_background" />
 
