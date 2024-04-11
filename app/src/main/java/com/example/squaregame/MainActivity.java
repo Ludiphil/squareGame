@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
@@ -89,13 +90,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 rowLayout.addView(button);
             }
             if (j != numLines - 1) {
-                for (int i = 0; i < 6; i++) {
+                for (int i = 0; i < numLines + 1; i++) {
                     ImageButton button = new ImageButton(this);
                     int id = ViewCompat.generateViewId();
                     System.out.println("ID: " + id);
                     button.setId(id); // Générer un ID unique pour chaque bouton
                     button.setImageResource(R.drawable.gris); // Image par défaut
                     button.setOnClickListener(this);
+
 
                     LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                             buttonHeight+30, // largeur calculée
@@ -110,6 +112,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     button.setLayoutParams(params);
 
                     rowLayout.addView(button);
+                    if(i != numLines){
+                        // Ajouter une ImageView après chaque ImageButton
+                        ImageView imageView = new ImageView(this);
+                        imageView.setImageResource(R.drawable.gris); // Image par défaut
+                        LinearLayout.LayoutParams imageParams = new LinearLayout.LayoutParams(
+                                100, // largeur en pixels
+                                100 // hauteur en pixels
+                        );
+
+                        imageParams.setMargins(5, 55, -100, 0); // Ajouter une marge supérieure de 50 pixels
+                        imageView.setLayoutParams(imageParams);
+                        rowLayout.addView(imageView);
+                    }
+
                 }
             }
 
