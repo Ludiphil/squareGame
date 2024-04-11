@@ -326,7 +326,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                 CouleurRemplissage4 = JoueurActuel;
                 binding.Remplissage4.setImageResource(j2.getImageResourceId());}
         }
-        if (CouleurRemplissage5 == 0 && ButtonBottom2Color == ButtonBottom5Color && ButtonBottom5Color == ButtonRight5Color && ButtonRight4Color == ButtonRight5Color && ButtonRight5Color != 0)
+        if (CouleurRemplissage5 == 0 && ButtonBottom2Color != 0 && ButtonBottom5Color != 0 && 0 != ButtonRight5Color && ButtonRight4Color != 0)
         {
             if (JoueurActuel ==1){
                 CouleurRemplissage5 = JoueurActuel;
@@ -335,7 +335,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                 CouleurRemplissage5 = JoueurActuel;
                 binding.Remplissage5.setImageResource(j2.getImageResourceId());}
         }
-        if (CouleurRemplissage6 == 0 && ButtonBottom3Color == ButtonBottom6Color && ButtonBottom6Color == ButtonRight6Color && ButtonRight5Color == ButtonRight6Color && ButtonRight6Color != 0)
+        if (CouleurRemplissage6 == 0 && ButtonBottom3Color !=0 && ButtonBottom6Color != 0 && 0 != ButtonRight6Color && ButtonRight5Color !=0)
         {
             if (JoueurActuel ==1){
                 CouleurRemplissage6 = JoueurActuel;
@@ -344,7 +344,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                 CouleurRemplissage6 = JoueurActuel;
                 binding.Remplissage6.setImageResource(j2.getImageResourceId());}
         }
-        if (CouleurRemplissage7 == 0 && ButtonBottom4Color == ButtonBottom7Color && ButtonBottom7Color == ButtonRight7Color && ButtonLeft3Color == ButtonRight7Color && ButtonLeft3Color != 0)
+        if (CouleurRemplissage7 == 0 && ButtonBottom4Color != 0 && ButtonBottom7Color != 0 && 0 != ButtonRight7Color && ButtonLeft3Color !=0)
         {
             if (JoueurActuel ==1){
                 CouleurRemplissage7 = JoueurActuel;
@@ -353,7 +353,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                 CouleurRemplissage7 = JoueurActuel;
                 binding.Remplissage7.setImageResource(j2.getImageResourceId());}
         }
-        if (CouleurRemplissage8 == 0 && ButtonBottom5Color == ButtonBottom8Color && ButtonBottom8Color == ButtonRight8Color && ButtonRight7Color == ButtonRight8Color && ButtonRight7Color != 0)
+        if (CouleurRemplissage8 == 0 && ButtonBottom5Color != 0 && ButtonBottom8Color !=0 && 0 != ButtonRight8Color && ButtonRight7Color != 0)
         {
             if (JoueurActuel ==1){
                 CouleurRemplissage8 = JoueurActuel;
@@ -362,7 +362,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                 CouleurRemplissage8 = JoueurActuel;
                 binding.Remplissage8.setImageResource(j2.getImageResourceId());}
         }
-        if (CouleurRemplissage9 == 0 && ButtonBottom6Color == ButtonBottom9Color && ButtonBottom9Color == ButtonRight9Color && ButtonRight8Color == ButtonRight9Color && ButtonRight9Color != 0)
+        if (CouleurRemplissage9 == 0 && ButtonBottom6Color != 0 && ButtonBottom9Color != 0 && 0 != ButtonRight9Color && ButtonRight8Color != 0)
         {
             if (JoueurActuel ==1){
                 CouleurRemplissage9 = JoueurActuel;
