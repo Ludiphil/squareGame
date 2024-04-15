@@ -243,16 +243,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             System.out.println(buttonCompare3.isSelected());
                             if(buttonForCode.getId() == 7 && buttonForCode.isSelected() && buttonCompare.isSelected() && buttonCompare2.isSelected() && buttonCompare3.isSelected()){
                                 System.out.println("Gagné");
+                                int cptImageView = 0;
                                 for (int k = 0; k < rowLayout.getChildCount(); k++){
                                     View child = rowLayout.getChildAt(k);
                                     if (child instanceof ImageView && !(child instanceof ImageButton)) {
-                                        ImageView image = (ImageView) child;
-                                        image.setImageResource(R.drawable.rouge);
-                                        break;
+                                        cptImageView++;
+                                        if (cptImageView == 3){
+                                            ImageView image = (ImageView) child;
+                                            image.setImageResource(R.drawable.rouge);
+                                        }
+
                                     }
                                 }
 
                             }
+
                             //
 //                            if (value == 0) {
 //                                button.setImageResource(R.drawable.rouge);
