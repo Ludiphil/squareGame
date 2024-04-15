@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -26,7 +27,7 @@ import com.example.squaregame.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ActivityMainBinding binding;
-
+    private MediaPlayer mediaPlayer;
     private long currentElapsedTime = 0;
     int numButtons = 5; // Nombre de boutons à afficher par ligne
     int numLines = 5; // Nombre de lignes à afficher
@@ -56,7 +57,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        mediaPlayer = MediaPlayer.create(this, R.raw.musiquefond);
+        mediaPlayer.setLooping(true);
+        mediaPlayer.start();
         Intent chrono = new Intent(getApplicationContext(),Chrono.class);
         startService(chrono);
 
@@ -185,6 +188,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onResume() {
         super.onResume();
+        if (!mediaPlayer.isPlaying()) {
+            mediaPlayer.start();
+        }
         registerReceiver(broadcastReceiver, new IntentFilter("chrono-tick"));
         LinearLayout buttonContainer = findViewById(R.id.buttonContainer);
         LinearLayout verticalLayout = (LinearLayout) buttonContainer.getChildAt(0); // Récupérer le verticalLayout
@@ -236,6 +242,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onPause() {
         super.onPause();
         unregisterReceiver(broadcastReceiver);
+        if (mediaPlayer.isPlaying()) {
+            mediaPlayer.pause();
+        }
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Arrêter et libérer les ressources de MediaPlayer lorsque l'activité est détruite
+        mediaPlayer.stop();
+        mediaPlayer.release();
     }
 }
 
