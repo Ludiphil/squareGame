@@ -214,7 +214,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             ImageButton button = (ImageButton) v;
                             buttonForCode.setSelected();
                             System.out.println("Button clicked with id: " + buttonForCode.getId() + " isSelected: " + buttonForCode.isSelected());
-                            if (buttonForCode.isSelected())
+                            if (buttonForCode.isSelected()){
                                 button.setImageResource(R.drawable.rouge);
                                 value = 1;
                                 j1 = j1 +1;
