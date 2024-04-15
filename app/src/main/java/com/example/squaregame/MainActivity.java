@@ -1,5 +1,9 @@
 package com.example.squaregame;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -8,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,22 +21,40 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+
 import com.example.squaregame.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ActivityMainBinding binding;
 
+    private long currentElapsedTime = 0;
     int numButtons = 5; // Nombre de boutons à afficher par ligne
     int numLines = 5; // Nombre de lignes à afficher
     int value = 0;
 
-
+    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            long elapsedTime = intent.getLongExtra("elapsedTime", 0);
+            updateUI(elapsedTime);
+        }
+    };
+    private void updateUI(long elapsedTime) {
+        int seconds = (int) (elapsedTime / 1000);
+        int minutes = seconds / 60;
+        seconds = seconds % 60;
+        binding.Chrono.setText(String.format("%02d:%02d", minutes, seconds));
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Intent chrono = new Intent(getApplicationContext(),Chrono.class);
+        startService(chrono);
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        updateUI(0);
         LinearLayout buttonContainer = findViewById(R.id.buttonContainer);
 
         // Récupérer les dimensions de l'écran
@@ -57,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         verticalLayout.setOrientation(LinearLayout.VERTICAL);
 
         // Calculer l'espacement entre les lignes
-        int rowSpacing = 60; // Espacement entre les lignes en pixels
+        int rowSpacing = 5; // Espacement entre les lignes en pixels
 
         // Créer et ajouter les boutons dynamiquement pour chaque ligne
         for (int j = 0; j < numLines; j++) {
@@ -105,10 +128,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             buttonWidth+30 // hauteur calculée
                     );
                     if (i == 0) {
-                        params.setMargins(-830,30,0,0); // Espacement de 100 pixels
+                        params.setMargins(-830,30,2,0); // Espacement de 100 pixels
                     }
                     if(i != 0){
-                        params.setMargins(110,30,0,0); // Espacement de 100 pixels
+                        params.setMargins(110,30,2,0); // Espacement de 100 pixels
                     }
                     button.setLayoutParams(params);
 
@@ -130,7 +153,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
 
-
             // Ajouter la ligne au conteneur vertical
             verticalLayout.addView(rowLayout);
 
@@ -141,10 +163,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 rowLayout.setLayoutParams(layoutParams);
             }
         }
-
-
-
-
         // Ajouter la disposition verticale contenant les boutons à la vue principale
         buttonContainer.addView(verticalLayout);
 
@@ -153,6 +171,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onResume() {
         super.onResume();
+        registerReceiver(broadcastReceiver, new IntentFilter("chrono-tick"));
         LinearLayout buttonContainer = findViewById(R.id.buttonContainer);
         LinearLayout verticalLayout = (LinearLayout) buttonContainer.getChildAt(0); // Récupérer le verticalLayout
 
@@ -184,6 +203,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         // Gérer les clics de bouton ici si nécessaire
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(broadcastReceiver);
     }
 }
 
