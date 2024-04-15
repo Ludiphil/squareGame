@@ -32,6 +32,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     int numLines = 5; // Nombre de lignes à afficher
     int value = 0;
 
+    int j1 = 0;
+    int j2 = 3;
+    GamePreferences gamePrefs;
+    int meilleurScore;
+    String meilleurJoueur;
+
+
+
     private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -52,11 +60,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent chrono = new Intent(getApplicationContext(),Chrono.class);
         startService(chrono);
 
+        gamePrefs = new GamePreferences(getApplicationContext());
+        gamePrefs.saveBestScore(0, "Chèvre");
+        meilleurScore = gamePrefs.getBestScore();
+        meilleurJoueur = gamePrefs.getBestPlayerName();
+
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         updateUI(0);
         LinearLayout buttonContainer = findViewById(R.id.buttonContainer);
-
+        binding.BestScore.setText(String.format("%sd Avec %02d", meilleurJoueur, meilleurScore));
         // Récupérer les dimensions de l'écran
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -189,9 +203,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             if (value == 0) {
                                 button.setImageResource(R.drawable.rouge);
                                 value = 1;
+                                j1 = j1 +1;
+                                System.out.println(j1);
                             } else {
                                 button.setImageResource(R.drawable.gris);
                                 value = 0;
+                            }
+                            if (meilleurScore < j1){
+                                gamePrefs.saveBestScore(j1, "J1");
+                                meilleurScore = gamePrefs.getBestScore(); // Récupérer le nouveau meilleur score
+                                meilleurJoueur = gamePrefs.getBestPlayerName(); // Récupérer le nouveau meilleur joueur
+                                binding.BestScore.setText(String.format("%s Avec %02d", meilleurJoueur, meilleurScore)); // Mettre à jour le texte
+                            }
+                            if (meilleurScore < j2){
+                                gamePrefs.saveBestScore(j2, "J2");
+                                meilleurScore = gamePrefs.getBestScore(); // Récupérer le nouveau meilleur score
+                                meilleurJoueur = gamePrefs.getBestPlayerName(); // Récupérer le nouveau meilleur joueur
+                                binding.BestScore.setText(String.format("%s Avec %02d", meilleurJoueur, meilleurScore)); // Mettre à jour le texte
                             }
                         }
                     });
