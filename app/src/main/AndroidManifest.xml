@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools" >
 
     <application
         android:allowBackup="true"
@@ -11,15 +11,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SquareGame"
-        tools:targetApi="31">
-        <service
-            android:name=".Chrono"
-            android:enabled="true"
-            android:exported="true"></service>
-
+        tools:targetApi="31" >
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="false" />
+        <activity
+            android:name=".Regles"
+            android:exported="true" />
+        <activity
+            android:name=".Rules"
+            android:exported="true" />
+        <activity
+            android:name=".Langages"
+            android:exported="true" />
+        <activity
+            android:name=".Languages"
+            android:exported="true" />
+        <activity
+            android:name=".MenuFR"
+            android:exported="true" />
+        <activity
+            android:name=".MenuEN"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
