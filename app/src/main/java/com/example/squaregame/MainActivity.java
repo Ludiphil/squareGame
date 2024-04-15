@@ -25,6 +25,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.squaregame.databinding.ActivityMainBinding;
 
+import java.util.HashMap;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ActivityMainBinding binding;
     private MediaPlayer mediaPlayer;
@@ -56,10 +58,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         mediaPlayer = MediaPlayer.create(this, R.raw.musiquefond);
         mediaPlayer.setLooping(true);
         mediaPlayer.start();
+
         Intent chrono = new Intent(getApplicationContext(),Chrono.class);
         startService(chrono);
 
@@ -194,19 +198,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         registerReceiver(broadcastReceiver, new IntentFilter("chrono-tick"));
         LinearLayout buttonContainer = findViewById(R.id.buttonContainer);
         LinearLayout verticalLayout = (LinearLayout) buttonContainer.getChildAt(0); // Récupérer le verticalLayout
+        HashMap<Integer, ButtonForCode> buttonMap = new HashMap<>();
 
         for (int i = 0; i < verticalLayout.getChildCount(); i++) {
             LinearLayout rowLayout = (LinearLayout) verticalLayout.getChildAt(i); // Récupérer chaque rowLayout
-
             for (int j = 0; j < rowLayout.getChildCount(); j++) {
                 View child = rowLayout.getChildAt(j);
                 if (child instanceof ImageButton) {
                     System.out.println("ImageButton found with id: " + child.getId());
+                    ButtonForCode buttonForCode = new ButtonForCode(child.getId());
+                    buttonMap.put(child.getId(), buttonForCode);
                     ((ImageButton) child).setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             ImageButton button = (ImageButton) v;
-                            if (value == 0) {
+                            buttonForCode.setSelected();
+                            System.out.println("Button clicked with id: " + buttonForCode.getId() + " isSelected: " + buttonForCode.isSelected());
+                            if (buttonForCode.isSelected())
                                 button.setImageResource(R.drawable.rouge);
                                 value = 1;
                                 j1 = j1 +1;
@@ -227,10 +235,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 meilleurJoueur = gamePrefs.getBestPlayerName(); // Récupérer le nouveau meilleur joueur
                                 binding.BestScore.setText(String.format("%s Avec %02d", meilleurJoueur, meilleurScore)); // Mettre à jour le texte
                             }
+                            ButtonForCode buttonCompare = buttonMap.get(1);
+                            ButtonForCode buttonCompare2 = buttonMap.get(6);
+                            ButtonForCode buttonCompare3 = buttonMap.get(12);
+                            System.out.println(buttonCompare.isSelected());
+                            System.out.println(buttonCompare2.isSelected());
+                            System.out.println(buttonCompare3.isSelected());
+                            if(buttonForCode.getId() == 7 && buttonForCode.isSelected() && buttonCompare.isSelected() && buttonCompare2.isSelected() && buttonCompare3.isSelected()){
+                                System.out.println("Gagné");
+                                for (int k = 0; k < rowLayout.getChildCount(); k++){
+                                    View child = rowLayout.getChildAt(k);
+                                    if (child instanceof ImageView && !(child instanceof ImageButton)) {
+                                        ImageView image = (ImageView) child;
+                                        image.setImageResource(R.drawable.rouge);
+                                        break;
+                                    }
+                                }
+
+                            }
+                            //
+//                            if (value == 0) {
+//                                button.setImageResource(R.drawable.rouge);
+//                                value = 1;
+//                            } else {
+//                                button.setImageResource(R.drawable.gris);
+//                                value = 0;
+//                            }
                         }
                     });
                 }
+
             }
+
         }
     }
 
