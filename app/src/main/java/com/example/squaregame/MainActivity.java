@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -28,11 +29,19 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ActivityMainBinding binding;
-
+    private MediaPlayer mediaPlayer;
     private long currentElapsedTime = 0;
     int numButtons = 5; // Nombre de boutons à afficher par ligne
     int numLines = 5; // Nombre de lignes à afficher
     int value = 0;
+
+    int j1 = 0;
+    int j2 = 3;
+    GamePreferences gamePrefs;
+    int meilleurScore;
+    String meilleurJoueur;
+
+
 
     private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
@@ -51,20 +60,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        mediaPlayer = MediaPlayer.create(this, R.raw.musiquefond);
+        mediaPlayer.setLooping(true);
+        mediaPlayer.start();
 
-//        // création des boutons
-//        for(int i = 1; i < 50; i++){
-//            ButtonForCode button = new ButtonForCode(i);
-//        }
-        // start chrono
         Intent chrono = new Intent(getApplicationContext(),Chrono.class);
         startService(chrono);
+
+        gamePrefs = new GamePreferences(getApplicationContext());
+        gamePrefs.saveBestScore(0, "Chèvre");
+        meilleurScore = gamePrefs.getBestScore();
+        meilleurJoueur = gamePrefs.getBestPlayerName();
+
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         updateUI(0);
         LinearLayout buttonContainer = findViewById(R.id.buttonContainer);
-
+        binding.BestScore.setText(String.format("%sd Avec %02d", meilleurJoueur, meilleurScore));
         // Récupérer les dimensions de l'écran
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -179,6 +192,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onResume() {
         super.onResume();
+        if (!mediaPlayer.isPlaying()) {
+            mediaPlayer.start();
+        }
         registerReceiver(broadcastReceiver, new IntentFilter("chrono-tick"));
         LinearLayout buttonContainer = findViewById(R.id.buttonContainer);
         LinearLayout verticalLayout = (LinearLayout) buttonContainer.getChildAt(0); // Récupérer le verticalLayout
@@ -200,6 +216,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             System.out.println("Button clicked with id: " + buttonForCode.getId() + " isSelected: " + buttonForCode.isSelected());
                             if (buttonForCode.isSelected())
                                 button.setImageResource(R.drawable.rouge);
+                                value = 1;
+                                j1 = j1 +1;
+                                System.out.println(j1);
+                            } else {
+                                button.setImageResource(R.drawable.gris);
+                                value = 0;
+                            }
+                            if (meilleurScore < j1){
+                                gamePrefs.saveBestScore(j1, "J1");
+                                meilleurScore = gamePrefs.getBestScore(); // Récupérer le nouveau meilleur score
+                                meilleurJoueur = gamePrefs.getBestPlayerName(); // Récupérer le nouveau meilleur joueur
+                                binding.BestScore.setText(String.format("%s Avec %02d", meilleurJoueur, meilleurScore)); // Mettre à jour le texte
+                            }
+                            if (meilleurScore < j2){
+                                gamePrefs.saveBestScore(j2, "J2");
+                                meilleurScore = gamePrefs.getBestScore(); // Récupérer le nouveau meilleur score
+                                meilleurJoueur = gamePrefs.getBestPlayerName(); // Récupérer le nouveau meilleur joueur
+                                binding.BestScore.setText(String.format("%s Avec %02d", meilleurJoueur, meilleurScore)); // Mettre à jour le texte
+                            }
                             ButtonForCode buttonCompare = buttonMap.get(1);
                             ButtonForCode buttonCompare2 = buttonMap.get(6);
                             ButtonForCode buttonCompare3 = buttonMap.get(12);
@@ -243,6 +278,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onPause() {
         super.onPause();
         unregisterReceiver(broadcastReceiver);
+        if (mediaPlayer.isPlaying()) {
+            mediaPlayer.pause();
+        }
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Arrêter et libérer les ressources de MediaPlayer lorsque l'activité est détruite
+        mediaPlayer.stop();
+        mediaPlayer.release();
     }
 }
 
