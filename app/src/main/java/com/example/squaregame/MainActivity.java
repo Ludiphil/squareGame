@@ -48,15 +48,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     int numLines = 5; // Nombre de lignes à afficher
     int value = 0;
 
-    int j1 = 0;
-    int j2 = 3;
     GamePreferences gamePrefs;
     int meilleurScore;
     String meilleurJoueur;
     int joueurActuel=1;
     int scoreJ1=0;
     int scoreJ2=0;
-
 
 
     private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
@@ -174,7 +171,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     rowLayout.addView(button);
                     if(i != numLines){
-                        // Ajouter une ImageView après chaque ImageButton
                         ImageView imageView = new ImageView(this);
                         imageView.setImageResource(R.drawable.gris); // Image par défaut
                         LinearLayout.LayoutParams imageParams = new LinearLayout.LayoutParams(
@@ -190,10 +186,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
 
-            // Ajouter la ligne au conteneur vertical
+
             verticalLayout.addView(rowLayout);
 
-            // Ajouter un espacement entre les lignes, sauf pour la dernière ligne
+
             if (j != numLines - 1) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) rowLayout.getLayoutParams();
                 layoutParams.bottomMargin = rowSpacing;
@@ -247,8 +243,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 button.setImageResource(R.drawable.gris);
                                 value = 0;
                             }
-
-
 
                             for (int u =1; u<=38; u++){
                                 if (u== 6 || u==17 || u ==28){
@@ -401,8 +395,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             meilleurJoueur = gamePrefs.getBestPlayerName(); // Récupérer le nouveau meilleur joueur
             binding.BestScore.setText(String.format("%s Avec %02d", meilleurJoueur, meilleurScore)); // Mettre à jour le texte
         }
-        binding.PlayerName1.setText("Nom du joueur 1 : "+j.getPlayerName1()+ "Score : "+scoreJ1);
-        binding.PlayerName2.setText("Nom du joueur 2 : "+j.getPlayerName2()+ "Score : "+scoreJ2);
+        binding.PlayerName1.setText("Nom du joueur 1 : "+j.getPlayerName1()+ " Score : "+ scoreJ1);
+        binding.PlayerName2.setText("Nom du joueur 2 : "+j.getPlayerName2()+ " Score : "+ scoreJ2);
 
     }
 
