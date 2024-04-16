@@ -240,8 +240,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 binding.BestScore.setText(String.format("%s Avec %02d", meilleurJoueur, meilleurScore)); // Mettre à jour le texte
                             }
 
-                            for (int u =1; u<=49; u++){
-                                if (u== 6 || u==17 || u ==28 || u ==39){
+                            for (int u =1; u<=38; u++){
+                                if (u== 6 || u==17 || u ==28){
                                     u = u + 6;
                                 }
                                 ButtonForCode buttonCompare = buttonMap.get(u);
@@ -251,19 +251,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 int cptImageViewRow = 0;
                                 int cptImageViewColumn= 0;
                                 if (buttonCompare.isSelected() && buttonCompare2.isSelected() && buttonCompare3.isSelected() && buttonCompare4.isSelected()){
-                                    if (u == 1 || u==12 || u==23||u==34||u==45){
+                                    if (u == 1 || u==12 || u==23||u==34){
                                         cptImageViewColumn = 1;
                                     }
-                                    else if (u == 2 || u==13 || u==24||u==35||u==46){
+                                    else if (u == 2 || u==13 || u==24||u==35){
                                         cptImageViewColumn = 2;
                                     }
-                                    else if (u == 3 || u==14 || u==25||u==36||u==47){
+                                    else if (u == 3 || u==14 || u==25||u==36){
                                         cptImageViewColumn = 3;
                                     }
-                                    else if (u == 4 || u==15 || u==26||u==37||u==48){
+                                    else if (u == 4 || u==15 || u==26||u==37){
                                         cptImageViewColumn = 4;
                                     }
-                                    else if (u == 5 || u==16 || u==27||u==38||u==49){
+                                    else if (u == 5 || u==16 || u==27||u==38){
                                         cptImageViewColumn = 5;
                                     }
                                     if (u >= 1 && u <= 9) {
@@ -274,8 +274,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                         cptImageViewRow = 3;
                                     } else if (u >= 30 && u <= 39) {
                                         cptImageViewRow = 4;
-                                    } else if (u >= 40 && u <= 49) {
-                                        cptImageViewRow = 5;
                                     } else {
 
                                     }
@@ -342,24 +340,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                                             }
                                         }
-                                    } else if (cptImageViewRow == 5) {
-                                        int cptImageView = 0;
-                                        LinearLayout rowLayout5 = (LinearLayout) verticalLayout.getChildAt(4);
-                                        for (int k = 0; k < rowLayout5.getChildCount(); k++){
-
-                                            View child = rowLayout5.getChildAt(k);
-                                            if (child instanceof ImageView && !(child instanceof ImageButton)) {
-                                                cptImageView ++;
-                                                if(cptImageView == cptImageViewColumn){
-                                                    ImageView image = (ImageView) child;
-                                                    image.setImageResource(R.drawable.rouge);
-                                                    break;
-                                                }
-
-                                            }
-                                        }
                                     }
-
                                 }
                             }
                         }
