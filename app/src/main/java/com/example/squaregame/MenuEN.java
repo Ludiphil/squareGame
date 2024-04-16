@@ -24,7 +24,7 @@ public class MenuEN extends AppCompatActivity {
         super.onResume();
         binding.start.setOnClickListener(v -> {
             Joueur j = new Joueur(binding.nameplayer1.getText().toString(), binding.nameplayer2.getText().toString(),binding.grille5.getText().toString());
-            Intent intent = new Intent(MenuEN.this, Reception.class);
+            Intent intent = new Intent(MenuEN.this, MainActivity.class);
             Bundle bundle = new Bundle();
             bundle.putSerializable("JOUEUR",j);
             intent.putExtras(bundle);
