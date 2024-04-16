@@ -253,6 +253,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 binding.BestScore.setText(String.format("%s Avec %02d", meilleurJoueur, meilleurScore)); // Mettre à jour le texte
                             }
 
+
                             for (int u =1; u<=38; u++){
                                 if (u== 6 || u==17 || u ==28){
                                     u = u + 6;
@@ -363,6 +364,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
         }
+
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        Joueur j = (Joueur) bundle.getSerializable("JOUEUR");
+        binding.PlayerName1.setText("Nom du joueur 1 : "+j.getPlayerName1());
+        binding.PlayerName2.setText("Nom du joueur 2 : "+j.getPlayerName2());
     }
 
     @Override
