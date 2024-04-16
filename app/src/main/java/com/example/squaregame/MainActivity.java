@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private MediaPlayer mediaPlayer;
     private long currentElapsedTime = 0;
     int numButtons = 5; // Nombre de boutons à afficher par ligne
-    int numLines = 5; // Nombre de lignes à afficher
+    int numLines = 6; // Nombre de lignes à afficher
     int value = 0;
 
     int j1 = 0;
@@ -111,11 +111,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     LinearLayout.LayoutParams.WRAP_CONTENT
             ));
             rowLayout.setOrientation(LinearLayout.HORIZONTAL);
-
             for (int i = 0; i < numButtons; i++) {
+
                 ImageButton button = new ImageButton(this);
                 int id = ViewCompat.generateViewId();
-                System.out.println("ID: " + id);
                 button.setId(id); // Générer un ID unique pour chaque bouton
                 button.setImageResource(R.drawable.gris); // Image par défaut
                 button.setOnClickListener(this);
@@ -124,16 +123,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         buttonWidth + 30, // largeur calculée
                         buttonHeight + 30 // hauteur calculée
                 );
-                if(i == 0){
+                if (i == 0) {
                     params.setMarginStart(100); // Espacement de 100 pixels
                 }
                 if (i != 0) {
                     params.setMarginStart(25); // Espacement de 100 pixels
                 }
                 button.setLayoutParams(params);
-
                 rowLayout.addView(button);
+
+                //rowLayout.addView(button);
             }
+
             if (j != numLines - 1) {
                 for (int i = 0; i < numLines + 1; i++) {
                     ImageButton button = new ImageButton(this);
@@ -244,11 +245,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             if(buttonForCode.getId() == 7 && buttonForCode.isSelected() && buttonCompare.isSelected() && buttonCompare2.isSelected() && buttonCompare3.isSelected()){
                                 System.out.println("Gagné");
                                 int cptImageView = 0;
-                                for (int k = 0; k < rowLayout.getChildCount(); k++){
-                                    View child = rowLayout.getChildAt(k);
+                                LinearLayout rowLayout2 = (LinearLayout) verticalLayout.getChildAt(1); // Récupérer chaque rowLayout
+
+                                for (int k = 0; k < rowLayout2.getChildCount(); k++){
+                                    View child = rowLayout2.getChildAt(k);
                                     if (child instanceof ImageView && !(child instanceof ImageButton)) {
                                         cptImageView++;
-                                        if (cptImageView == 3){
+                                        if (cptImageView == 4){
                                             ImageView image = (ImageView) child;
                                             image.setImageResource(R.drawable.rouge);
                                         }
@@ -257,6 +260,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 }
 
                             }
+
+//                            int cptImageView = 0;
+//                            for (int k = 0; k < rowLayout.getChildCount(); k++){
+//                                View child = rowLayout.getChildAt(k);
+//                                if (child instanceof ImageView && !(child instanceof ImageButton)) {
+//                                    cptImageView++;
+//                                    if (cptImageView == 3){
+//                                        ImageView image = (ImageView) child;
+//                                        image.setImageResource(R.drawable.rouge);
+//                                    }
+//
+//                                }
+//                            }
 
                             //
 //                            if (value == 0) {
