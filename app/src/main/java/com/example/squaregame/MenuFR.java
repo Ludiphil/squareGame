@@ -24,6 +24,14 @@ public class MenuFR extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        binding.start.setOnClickListener(v -> {
+            Joueur j = new Joueur(binding.nomdujoueur1.getText().toString(), binding.nomdujoueur2.getText().toString(),binding.grille5.getText().toString());
+            Intent intent = new Intent(MenuFR.this, Reception.class);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("JOUEUR",j);
+            intent.putExtras(bundle);
+            startActivity(intent);
+        });
         binding.regles.setOnClickListener(v -> {
             Intent intent = new Intent(MenuFR.this,Regles.class);
             startActivity(intent);

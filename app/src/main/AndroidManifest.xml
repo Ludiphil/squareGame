@@ -31,6 +31,9 @@
             android:name=".MenuFR"
             android:exported="true" />
         <activity
+            android:name=".Reception"
+            android:exported="true" />
+        <activity
             android:name=".MenuEN"
             android:exported="true" >
             <intent-filter>
