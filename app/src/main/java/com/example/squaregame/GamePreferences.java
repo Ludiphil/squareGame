@@ -28,5 +28,6 @@ public class GamePreferences {
 
     public String getBestPlayerName() {
         return sharedPreferences.getString(KEY_BEST_PLAYER_NAME, "");
+
     }
 }

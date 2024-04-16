@@ -25,6 +25,7 @@ public class ButtonForCode {
     // Getter pour isSelected
     public boolean isSelected() {
         return isSelected;
+
     }
 
     // Setter pour isSelected

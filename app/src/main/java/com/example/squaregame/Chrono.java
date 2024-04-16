@@ -24,6 +24,7 @@ public class Chrono extends Service {
             public void run() {
                 elapsedTime = SystemClock.elapsedRealtime() - startTime;
                 broadcastElapsedTime();
+
                 handler.postDelayed(this, 1000); // Met à jour toutes les secondes
             }
         };
