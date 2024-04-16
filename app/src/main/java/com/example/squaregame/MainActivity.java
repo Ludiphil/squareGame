@@ -277,7 +277,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     } else if (u >= 40 && u <= 49) {
                                         cptImageViewRow = 5;
                                     } else {
-                                        System.out.println("Le nombre n'appartient à aucune tranche spécifique.");
+
                                     }
                                     if (cptImageViewRow == 1){
                                         int cptImageView = 0;
