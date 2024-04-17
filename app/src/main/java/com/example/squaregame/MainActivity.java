@@ -372,7 +372,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                                 }
                             }
-                            joueurActuel = ((joueurActuel+1)%2)+1;
+                            joueurActuel = (joueurActuel == 1) ? 2 : 1;
                         }
                     });
                 }
