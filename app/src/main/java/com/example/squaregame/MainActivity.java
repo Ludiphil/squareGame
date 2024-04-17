@@ -205,6 +205,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onResume() {
         super.onResume();
+        int currentPlayer = 1; // 1 pour le joueur 1, 2 pour le joueur 2
+
         if (!mediaPlayer.isPlaying()) {
             mediaPlayer.start();
         }
