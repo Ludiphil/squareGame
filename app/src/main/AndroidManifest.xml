@@ -36,6 +36,7 @@
         <activity
             android:name=".MenuEN"
             android:exported="true" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
