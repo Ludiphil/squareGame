@@ -201,9 +201,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    private void updateBestScore(int score, String playerName) {
+        if (score > meilleurScore) {
+            gamePrefs.saveBestScore(score, playerName);
+            meilleurScore = gamePrefs.getBestScore();
+            meilleurJoueur = gamePrefs.getBestPlayerName();
+            binding.BestScore.setText(String.format("%s Avec %02d points", meilleurJoueur, meilleurScore));
+        }
+    }
     @Override
     protected void onResume() {
         super.onResume();
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        Joueur joueurs = (Joueur) bundle.getSerializable("JOUEUR");
+        if (meilleurScore < scoreJ1){
+            gamePrefs.saveBestScore(scoreJ1, joueurs.getPlayerName1());
+            meilleurScore = gamePrefs.getBestScore(); // Récupérer le nouveau meilleur score
+            meilleurJoueur = gamePrefs.getBestPlayerName(); // Récupérer le nouveau meilleur joueur
+            binding.BestScore.setText(String.format("%s Avec %02d", meilleurJoueur, meilleurScore)); // Mettre à jour le texte
+        }
+        if (meilleurScore < scoreJ2){
+            gamePrefs.saveBestScore(scoreJ2, joueurs.getPlayerName2());
+            meilleurScore = gamePrefs.getBestScore(); // Récupérer le nouveau meilleur score
+            meilleurJoueur = gamePrefs.getBestPlayerName(); // Récupérer le nouveau meilleur joueur
+            binding.BestScore.setText(String.format("%s Avec %02d points", meilleurJoueur, meilleurScore)); // Mettre à jour le texte
+        }
+
         int currentPlayer = 1; // 1 pour le joueur 1, 2 pour le joueur 2
 
         if (!mediaPlayer.isPlaying()) {
@@ -293,11 +317,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                                 if(cptImageView == cptImageViewColumn){
                                                     ImageView image = (ImageView) child;
                                                     if (joueurActuel==1){
-                                                        image.setImageResource(R.drawable.rouge);
-                                                        scoreJ1 = scoreJ1+1;
+                                                        if(image.getDrawable().getConstantState().equals(getResources().getDrawable(R.drawable.rouge).getConstantState()) || image.getDrawable().getConstantState().equals(getResources().getDrawable(R.drawable.vert).getConstantState())){
+                                                            //image.setImageResource(R.drawable.rouge);
+                                                        } else {
+                                                            image.setImageResource(R.drawable.rouge);
+                                                            scoreJ1 = scoreJ1+1;
+                                                            binding.PlayerName1.setText("Nom du joueur 1 : "+joueurs.getPlayerName1()+ " Score : "+ scoreJ1);
+                                                            updateBestScore(scoreJ1, joueurs.getPlayerName1());
+
+                                                        }
+                                                        //image.setImageResource(R.drawable.rouge);
+
+
                                                     } else if (joueurActuel==2) {
-                                                        image.setImageResource(R.drawable.vert);
-                                                        scoreJ2 = scoreJ2+1;
+                                                        if(image.getDrawable().getConstantState().equals(getResources().getDrawable(R.drawable.rouge).getConstantState()) || image.getDrawable().getConstantState().equals(getResources().getDrawable(R.drawable.vert).getConstantState())){
+                                                            //image.setImageResource(R.drawable.rouge);
+                                                        } else {
+                                                            image.setImageResource(R.drawable.vert);
+                                                            scoreJ2 = scoreJ2+1;
+                                                            binding.PlayerName2.setText("Nom du joueur 2 : "+joueurs.getPlayerName2()+ " Score : "+ scoreJ2);
+                                                            updateBestScore(scoreJ2, joueurs.getPlayerName2());
+                                                        }
+                                                        //image.setImageResource(R.drawable.vert);
+
                                                     }
                                                     break;
                                                 }
@@ -315,11 +357,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                                 if(cptImageView == cptImageViewColumn){
                                                     ImageView image = (ImageView) child;
                                                     if (joueurActuel==1){
-                                                        image.setImageResource(R.drawable.rouge);
-                                                        scoreJ1 = scoreJ1+1;
+                                                        if(image.getDrawable().getConstantState().equals(getResources().getDrawable(R.drawable.rouge).getConstantState()) || image.getDrawable().getConstantState().equals(getResources().getDrawable(R.drawable.vert).getConstantState())){
+                                                            //image.setImageResource(R.drawable.rouge);
+                                                        } else {
+                                                            image.setImageResource(R.drawable.rouge);
+                                                            scoreJ1 = scoreJ1+1;
+                                                            binding.PlayerName1.setText("Nom du joueur 1 : "+joueurs.getPlayerName1()+ " Score : "+ scoreJ1);
+                                                            updateBestScore(scoreJ1, joueurs.getPlayerName1());
+                                                        }
+                                                        //image.setImageResource(R.drawable.rouge);
+
                                                     } else if (joueurActuel==2) {
-                                                        image.setImageResource(R.drawable.vert);
-                                                        scoreJ2 = scoreJ2+1;
+                                                        if(image.getDrawable().getConstantState().equals(getResources().getDrawable(R.drawable.rouge).getConstantState()) || image.getDrawable().getConstantState().equals(getResources().getDrawable(R.drawable.vert).getConstantState())){
+                                                            //image.setImageResource(R.drawable.rouge);
+                                                        } else {
+                                                            image.setImageResource(R.drawable.vert);
+                                                            scoreJ2 = scoreJ2+1;
+                                                            binding.PlayerName2.setText("Nom du joueur 2 : "+joueurs.getPlayerName2()+ " Score : "+ scoreJ2);
+                                                            updateBestScore(scoreJ2, joueurs.getPlayerName2());
+                                                        }
+                                                        //image.setImageResource(R.drawable.vert);
+
                                                     }
                                                     break;
                                                 }
@@ -337,11 +395,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                                 if(cptImageView == cptImageViewColumn){
                                                     ImageView image = (ImageView) child;
                                                     if (joueurActuel==1){
-                                                        image.setImageResource(R.drawable.rouge);
-                                                        scoreJ1 = scoreJ1+1;
+                                                        if(image.getDrawable().getConstantState().equals(getResources().getDrawable(R.drawable.rouge).getConstantState()) || image.getDrawable().getConstantState().equals(getResources().getDrawable(R.drawable.vert).getConstantState())){
+                                                            //image.setImageResource(R.drawable.rouge);
+                                                        } else {
+                                                            image.setImageResource(R.drawable.rouge);
+                                                            scoreJ1 = scoreJ1+1;
+                                                            binding.PlayerName1.setText("Nom du joueur 1 : "+joueurs.getPlayerName1()+ " Score : "+ scoreJ1);
+                                                            updateBestScore(scoreJ1, joueurs.getPlayerName1());
+                                                        }
+                                                        //image.setImageResource(R.drawable.rouge);
+
                                                     } else if (joueurActuel==2) {
-                                                        image.setImageResource(R.drawable.vert);
-                                                        scoreJ2 = scoreJ2+1;
+                                                        if(image.getDrawable().getConstantState().equals(getResources().getDrawable(R.drawable.rouge).getConstantState()) || image.getDrawable().getConstantState().equals(getResources().getDrawable(R.drawable.vert).getConstantState())){
+                                                            //image.setImageResource(R.drawable.rouge);
+                                                        } else {
+                                                            image.setImageResource(R.drawable.vert);
+                                                            scoreJ2 = scoreJ2+1;
+                                                            binding.PlayerName2.setText("Nom du joueur 2 : "+joueurs.getPlayerName2()+ " Score : "+ scoreJ2);
+                                                            updateBestScore(scoreJ2, joueurs.getPlayerName2());
+                                                        }
+
                                                     }
                                                     break;
                                                 }
@@ -359,11 +432,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                                 if(cptImageView == cptImageViewColumn){
                                                     ImageView image = (ImageView) child;
                                                     if (joueurActuel==1){
-                                                        image.setImageResource(R.drawable.rouge);
-                                                        scoreJ1 = scoreJ1+1;
+                                                        if(image.getDrawable().getConstantState().equals(getResources().getDrawable(R.drawable.rouge).getConstantState()) || image.getDrawable().getConstantState().equals(getResources().getDrawable(R.drawable.vert).getConstantState())){
+                                                            //image.setImageResource(R.drawable.rouge);
+                                                        } else {
+                                                            image.setImageResource(R.drawable.rouge);
+                                                            scoreJ1 = scoreJ1+1;
+                                                            binding.PlayerName1.setText("Nom du joueur 1 : "+joueurs.getPlayerName1()+ " Score : "+ scoreJ1);
+                                                            updateBestScore(scoreJ1, joueurs.getPlayerName1());
+                                                        }
+
                                                     } else if (joueurActuel==2) {
-                                                        image.setImageResource(R.drawable.vert);
-                                                        scoreJ2 = scoreJ2+1;
+                                                        if(image.getDrawable().getConstantState().equals(getResources().getDrawable(R.drawable.rouge).getConstantState()) || image.getDrawable().getConstantState().equals(getResources().getDrawable(R.drawable.vert).getConstantState())){
+                                                            //image.setImageResource(R.drawable.rouge);
+                                                        } else {
+                                                            image.setImageResource(R.drawable.vert);
+                                                            scoreJ2 = scoreJ2+1;
+                                                            binding.PlayerName2.setText("Nom du joueur 2 : "+joueurs.getPlayerName2()+ " Score : "+ scoreJ2);
+                                                            updateBestScore(scoreJ2, joueurs.getPlayerName2());
+                                                        }
+
                                                     }
                                                     break;
                                                 }
@@ -382,23 +469,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
         }
-        Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-        Joueur j = (Joueur) bundle.getSerializable("JOUEUR");
-        if (meilleurScore < scoreJ1){
-            gamePrefs.saveBestScore(scoreJ1, j.getPlayerName1());
-            meilleurScore = gamePrefs.getBestScore(); // Récupérer le nouveau meilleur score
-            meilleurJoueur = gamePrefs.getBestPlayerName(); // Récupérer le nouveau meilleur joueur
-            binding.BestScore.setText(String.format("%s Avec %02d", meilleurJoueur, meilleurScore)); // Mettre à jour le texte
-        }
-        if (meilleurScore < scoreJ2){
-            gamePrefs.saveBestScore(scoreJ2, j.getPlayerName2());
-            meilleurScore = gamePrefs.getBestScore(); // Récupérer le nouveau meilleur score
-            meilleurJoueur = gamePrefs.getBestPlayerName(); // Récupérer le nouveau meilleur joueur
-            binding.BestScore.setText(String.format("%s Avec %02d", meilleurJoueur, meilleurScore)); // Mettre à jour le texte
-        }
-        binding.PlayerName1.setText("Nom du joueur 1 : "+j.getPlayerName1()+ " Score : "+ scoreJ1);
-        binding.PlayerName2.setText("Nom du joueur 2 : "+j.getPlayerName2()+ " Score : "+ scoreJ2);
+
+        binding.PlayerName1.setText("Nom du joueur 1 : "+joueurs.getPlayerName1()+ " Score : "+ scoreJ1);
+        binding.PlayerName2.setText("Nom du joueur 2 : "+joueurs.getPlayerName2()+ " Score : "+ scoreJ2);
 
     }
 
